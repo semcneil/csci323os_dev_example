@@ -8,7 +8,7 @@ void kernel_main(void) {
     volatile char* video_memory = (volatile char*)0xB8000;
 
     // Word to write to screen
-    const char* message = "SUCCESS";
+    const char* message = "SUCCESS from CSCI 323!";
     
     // Color attribute byte: 0x0A means Black background (0) with Light Green text (A)
     char color_attribute = 0x0A;
