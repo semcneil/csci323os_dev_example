@@ -1,3 +1,5 @@
-Docker is an excellent choice for operating system (OS) development because it isolates your cross-compiler toolchain, guarantees reproducible builds, and keeps your host machine clean. While you cannot run or boot your custom kernel directly inside a standard container, you can use Docker to compile the kernel source code into an ISO or disk image and link it to an emulator like QEMU.Here is a complete blueprint to build and use an OS development environment via Docker.📋 The Architecture BreakdownWhen developing an OS, your workflow splits cleanly into two distinct parts:Inside the Container: House the cross-compiler toolchain (gcc-mips, nasm, make, grub-mkrescue). This ensures your code compiles identically across Mac, Windows, and Linux hosts.On the Host Machine: Execute emulators like QEMU or Bochs to test the compiled OS binary. This separation avoids complex GUI forwarding workarounds from within a container.
+# Using Docker to make an OS
 
-Using this approach, you simply type make build on your host to silently activate Docker for compilation, followed by make run to immediately test your code locally in QEMU.If you want to tailor this further, tell me what target architecture you are compiling for (e.g., x86_64, ARM, RISC-V) and what bootloader you plan to use (e.g., GRUB, Limine, custom). I can provide the exact compiler configurations and directory layouts.
+This OS can be built by running ```make``` followed by
+```make run```. It uses Docker to create the build environment
+and QEMU to run the OS.
